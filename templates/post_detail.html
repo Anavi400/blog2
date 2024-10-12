@@ -4,4 +4,7 @@
    <h2>{{ post.title }}</h2>
    <p>Author: {{ post.author }}</p>
    <p>{{ post.body }}</p>
+   <a href="{% url 'post_update' post.pk %}">Actualizar</a>
+   <a href="{% url 'post_delete' post.pk %}">Borrar Post</a>
 {% endblock content %}
+

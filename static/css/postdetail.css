@@ -1,0 +1,34 @@
+.post-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.post-author {
+    font-size: 14px;
+    color: #777;
+}
+
+.post-body {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.btn-update, .btn-delete {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-update {
+    background-color: #4CAF50;
+    margin-right: 10px;
+}
+
+.btn-delete {
+    background-color: #f44336;
+}
+
+.btn-update:hover, .btn-delete:hover {
+    opacity: 0.8;
+}

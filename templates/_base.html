@@ -11,7 +11,11 @@
 <body>
     <header>
         <a href="{% url 'post_list' %}">Home</a>
-    </header>
+        <form method = "post" action = "{% url 'logout' %}">
+            {% csrf_token %}
+            <input type = "submit" value = "Log out">
+        </form>
+    </header> 
     {% block content %}
     {% endblock content %}
 </body>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #34495e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .button {
+            background-color: #e67e22;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #d35400;
+        }
+        .content {
+            padding: 100px 20px; /* Ajustado para la navbar fija */
+        }
+        .cta-area {
+            margin: 40px 0;
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            .navbar a, .button {
+                width: 100%;
+                text-align: left;
+                padding: 12px;
+            }
+        }
+    </style>
+    <title>Navbar</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="logo">Blog</a>
+        <div class="navbar-links">
+            <div class="dropdown">
+                <a href="#servicios" class="dropbtn">Servicios</a>
+                <div class="dropdown-content">
+                    <a href="#servicio1">Servicio 1</a>
+                    <a href="#servicio2">Servicio 2</a>
+                    <a href="#servicio3">Servicio 3</a>
+                </div>
+            </div>
+            <a href="#acerca">Acerca de</a>
+            <a href="#contacto">Contacto</a>
+            <a href="{% url 'post_list' %}">Inicio</a>
+        </div>
+        <a href="{% url 'signup' %}" class="button">Registrate</a>
+    </div>
+    <div class="content">
+        <h1>Nombre de la pagina</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dicta ipsam at sit, temporibus tenetur voluptatibus optio libero neque sapiente repudiandae recusandae officia tempora, quidem perspiciatis eveniet ut vero. Veritatis..</p>
+        <!-- Agrega más contenido aquí -->
+    </div>    
+    <div class="cta-area">
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>¿Ya tienes una cuenta?</p>
+        <a href="{% url 'login' %}" class="button">Inicia sesión</a>  
+    </div>
+</body>
+</html>

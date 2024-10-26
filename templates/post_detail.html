@@ -1,10 +1,15 @@
 {% extends "_base.html" %}
+{% load static %}
 
 {% block content %}
-   <h2 class="post-title">{{ post.title }}</h2>
-   <p class="post-author">Author: {{ post.author }}</p>
-   <p class="post-body">{{ post.body }}</p>
-   <a class="btn-update" href="{% url 'post_update' post.pk %}">Actualizar</a>
-   <a class="btn-delete" href="{% url 'post_delete' post.pk %}">Borrar Post</a>
-{% endblock content %}
-
+   <div class="card mb-4">
+      <div class="card-body">
+         <link rel = "stylesheet" href = "{% static 'css/postdetail.css' %}"> 
+         <h2 class="card-title">{{ post.title }}</h2>
+         <p class="card-subtitle mb-2 text-muted">Author: {{ post.author }}</p>
+         <p class="card-text">{{ post.body }}</p>
+         <a href="{% url 'post_update' post.pk %}" class="btn btn-primary">Actualizar</a>
+         <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Borrar Post</a>
+      </div>
+   </div>
+{% endblock %}

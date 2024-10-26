@@ -12,3 +12,15 @@ class SignUpView(CreateView):
 
 def FirstPage(request):
     return render(request, 'first_page.html')
+
+# from django.shortcuts import render, redirect, get_object_or_404
+# from .models import Post, Comment
+
+# def add_comment(request, post_id):
+#     post = get_object_or_404(Post, pk=post_id)
+#     if request.method == "POST":
+#         # lógica para manejar el formulario de comentario
+#         text = request.POST.get('comment')
+#         Comment.objects.create(post=post, text=text, author=request.user)
+#         return redirect('post_detail', post_id=post_id)
+#     return render(request, 'add_comment.html', {'post': post})

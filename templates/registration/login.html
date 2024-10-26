@@ -3,6 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .errorlist {
+            color: red;
+            margin-bottom: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .extra-options {
+            margin-top: 20px;
+        }
+
+        .extra-options a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .extra-options a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-login {
+            margin-top: 20px;
+        }
+        
+        .social-login button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .facebook {
+            background-color: #3b5998;
+            color: white;
+        }
+        
+        .google {
+            background-color: #db4437;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Inicio de Sesión</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="errorlist">{{ form.non_field_errors }}</div>
+            {{ form.username.label_tag }}<br>
+            {{ form.username }}<br>
+            {{ form.username.errors }}
+            
+            {{ form.password.label_tag }}<br>
+            {{ form.password }}<br>
+            {{ form.password.errors }}
+
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+        <div class="extra-options">
+            <a href="{% url 'signup' %}">¿No tienes cuenta?</a> | <a href="{% url 'signup' %}">Registrate</a>
+        </div>
+        <div class="social-login">
+            <button class="#">Iniciar sesión con Facebook</button>
+            <button class="#">Iniciar sesión con Google</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
     <style>
         body {
@@ -56,4 +189,4 @@
     </div>
 
 </body>
-</html>
+</html> -->

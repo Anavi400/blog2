@@ -13,6 +13,11 @@ class SignUpView(CreateView):
 def FirstPage(request):
     return render(request, 'first_page.html')
 
+class LogOutView(CreateView):
+    template_name = "registration/logout.html"
+    form_class = UserCreationForm
+    success_url = reverse_lazy('firstpage')
+
 # from django.shortcuts import render, redirect, get_object_or_404
 # from .models import Post, Comment
 

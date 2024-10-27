@@ -1,16 +1,13 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel = "stylesheet" href = "{% static 'css/base.css' %}"> 
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <style>
-        <header>
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -68,15 +65,19 @@
     </style>
 </head>
 <body>
-
+    <header>
         <a href="{% url 'post_list' %}">Home</a>
-        <form method = "post" action = "{% url 'logout' %}">
+        <form method="post" action="{% url 'firstpage' %}">
             {% csrf_token %}
-            <input type = "submit" value = "Log out">
+            <input type="submit" value="logout">
         </form>
     </header> 
-    {% block content %}
-    {% endblock content %}
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <footer>
+    </footer>
 </body>
 </html>
 

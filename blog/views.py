@@ -3,7 +3,7 @@ from .models import Post
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
-
+from django.views.generic import TemplateView
 # Create your views here.
 
 
@@ -34,3 +34,7 @@ class PostUpdateView(UpdateView):
     model = Post
     fields = ["title", "body"]
     success_url = reverse_lazy("post_list") 
+
+
+class FirstPageView(TemplateView):
+    template_name = "registro/firstpage.html"

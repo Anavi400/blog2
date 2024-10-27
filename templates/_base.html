@@ -16,7 +16,7 @@
         }
 
         header {
-            background-color: #333;
+            background-color: #34495e;
             color: white;
             padding: 15px;
             display: flex;
@@ -66,7 +66,9 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'post_list' %}">Home</a>
+        <a href="{% url 'post_list' %}">
+            <h2>Home</h2>
+        </a>
         <form method="post" action="{% url 'firstpage' %}">
             {% csrf_token %}
             <input type="submit" value="logout">

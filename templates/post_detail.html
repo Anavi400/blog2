@@ -28,10 +28,27 @@
                      </div>
                      <div class="social-share">
                      </div>
+                     <div>
+                        <h1>Comentarios</h1>
+                        <form method="post">
+                           {% csrf_token %}
+                           {{ form.as_p }}
+                           <button type="submmit" a href=  "comentarios" >Añadir comentario</button>
+                        </form>
+                        <h3>Comentarios:</h3>
+                        {% for comment in comments %}
+                           <div>
+                              <strong>{{ comment.author }}</strong>
+                              <p>{{ comment.content }}</p>
+                              <small>{{ comment.created.at }}</small>
+                           </div>
+                        {% empty %}
+                           <p>No hay comentarios aún</p>
+                        {% endfor %}
+                     </div>
                   </div>
                </div>
          </div>
       </div>
    </div>
 {% endblock %}
-

@@ -8,6 +8,8 @@ from django.shortcuts import get_object_or_404, redirect
 from .models import Post, Comment
 from django.views.generic.edit import FormMixin
 from .forms import CommentForm
+from django.views.decorators.http import require_POST
+from django.http import HttpResponse, HttpResponseNotAllowed
 # Create your views here.
 
 
@@ -52,18 +54,16 @@ class AddCommentView(FormMixin, DetailView):
     form_class = CommentForm
 
     def get_success_url(self):
-        # Esto redirige de nuevo a la misma página de detalles del post
         return redirect('post_detail', pk=self.object.pk).url
 
     def get_context_data(self, **kwargs):
-        # Asegúrate de añadir el formulario al contexto
         context = super().get_context_data(**kwargs)
         context['form'] = self.get_form()
         context['comments'] = self.object.comments.all()
         return context
 
     def post(self, request, *args, **kwargs):
-        self.object = self.get_object()  # Obtener el objeto Post
+        self.object = self.get_object()  
         form = self.get_form()
 
         if form.is_valid():
@@ -73,4 +73,11 @@ class AddCommentView(FormMixin, DetailView):
             comment.save()
             return redirect(self.get_success_url())
         else:
-            return self.form_invalid(form)  # Manejo en caso de que el formulario no sea válido
+            return self.form_invalid(form)  
+        
+
+def my_view(request, post_id):
+        if request.method == 'POST':
+            return HttpResponse('Solicitud POST exitosa.')
+        else:
+            return HttpResponseNotAllowed(['POST'])
